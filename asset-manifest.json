@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/HRCONSULT/static/css/main.5f361e03.chunk.css",
+    "main.js": "/HRCONSULT/static/js/main.517822ca.chunk.js",
+    "main.js.map": "/HRCONSULT/static/js/main.517822ca.chunk.js.map",
+    "runtime-main.js": "/HRCONSULT/static/js/runtime-main.11a3c221.js",
+    "runtime-main.js.map": "/HRCONSULT/static/js/runtime-main.11a3c221.js.map",
+    "static/css/2.e40c9195.chunk.css": "/HRCONSULT/static/css/2.e40c9195.chunk.css",
+    "static/js/2.587b0db5.chunk.js": "/HRCONSULT/static/js/2.587b0db5.chunk.js",
+    "static/js/2.587b0db5.chunk.js.map": "/HRCONSULT/static/js/2.587b0db5.chunk.js.map",
+    "index.html": "/HRCONSULT/index.html",
+    "precache-manifest.c973b148ad3f7f2aaee13f8f823fb422.js": "/HRCONSULT/precache-manifest.c973b148ad3f7f2aaee13f8f823fb422.js",
+    "service-worker.js": "/HRCONSULT/service-worker.js",
+    "static/css/2.e40c9195.chunk.css.map": "/HRCONSULT/static/css/2.e40c9195.chunk.css.map",
+    "static/css/main.5f361e03.chunk.css.map": "/HRCONSULT/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.587b0db5.chunk.js.LICENSE.txt": "/HRCONSULT/static/js/2.587b0db5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.11a3c221.js",
+    "static/css/2.e40c9195.chunk.css",
+    "static/js/2.587b0db5.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.517822ca.chunk.js"
+  ]
+}
