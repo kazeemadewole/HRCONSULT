@@ -3,6 +3,17 @@ import {Formik , Form} from 'formik';
 import * as Yup from 'yup';
 import FormikControl from './FormikControl';
 import Styled from 'styled-components';
+import NewPage from './newPage';
+import  {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+toast.configure();
+const notify = () =>{
+    toast.success('Successfully Added');
+}
+
+
 
 const HrPage = ()  => {
     const [result, setResult] = useState([]);
@@ -37,43 +48,9 @@ const HrPage = ()  => {
     })
 
     const onSubmit = values => {
-  
-        setResult(values);
-        setShow(true);
-        console.log(result.email);
-    }
-    const displayResult = (<div>
-    <h3>{result.email}</h3>
-    <h3>Work Experience</h3>
-    <hr />
-    <div className='d-flex text-center'>
-        <div className='col-4'> Employer Name</div>
-        <div className='col-6'>{result.companyName}</div>
-
-    </div>
-    <div className='d-flex text-center'>
-        <div className='col-4'>Employer Address</div>
-        <div className='col-6'><p> {result.companyAddress}</p></div>
-
-    </div>
-    <div className='d-flex text-center'>
-        <div className='col-4'>Employer phone number</div>
-        <div className='col-6'>{result.companyContactNo}</div>
-
-    </div>
-    <div className='d-flex text-center'>
-        <div className='col-4'>Job Title</div>
-        <div className='col-6'>{result.jobTittle}</div>
-
-    </div>
-    <div className='d-flex text-center'>
-        <div className='col-4'>Job Role</div>
-        <div className='col-6'>{result.jobRole}</div>
-
-    </div>
-    
-</div>)
-
+        setResult([...result, values])
+        setShow(true)
+    };
     return (
         <div className="container ">
             <div className='row'>
@@ -82,15 +59,15 @@ const HrPage = ()  => {
                 </div>
             </div>
             <div className="row ">
-            <div className="col-md-6  col-sm-8 mx-auto my-2 "> 
+            <div className="col-md-6  col-sm-10 mx-auto my-2 "> 
         <DivWrapper className='card'> 
         <div className='card-body'> 
         <Formik
         initialValues = {initialValues} 
         validationSchema = {validationSchema}
-        onSubmit = {onSubmit} >
+        onSubmit = {onSubmit}  >
         { formik => {
-            return <Form>
+            return (<Form>
                 <FormikControl 
                     control='input'
                     type = 'input'
@@ -117,8 +94,11 @@ const HrPage = ()  => {
                     label = 'Email Address'
                     name = 'email'
                     />
-
-            <input type='file' className='form-control-file' name='file' />
+            <div className='form-group-file'>
+                <label htmlFor='file'>Upload CV</label>
+                <input type='file' className='form-control-file' name='file' id='file'/>
+            </div>
+            
             <div><h3>Work Experience</h3></div>
 
                 <FormikControl 
@@ -167,22 +147,30 @@ const HrPage = ()  => {
                     name = 'dateTo'
                     />
 
-                <button type='submit'  >
+                <button type='submit' onClick={notify} >
                     Submit
                 </button>
-            </Form>
+            </Form> );
 
-        }  }
-
+        }
+          }
         </Formik>
         </div>
         </DivWrapper> 
         </div>
         </div>
-        <div className='col-md-6 mx-auto card'>
-            <div className=' card-body'>
-            { show && displayResult}
-                </div>  </div>
+          { show && result.map(res => {
+            return <NewPage 
+            id={res.email}
+            email={res.email} 
+            companyName={res.companyName}
+            companyAddress = {res.companyAddress}
+            companyContactNo = {res.companyContactNo}
+            jobTittle = {res.jobTittle}
+            jobRole = {res.jobRole}
+            phone = {res.contactNo} />
+        })}
+             
         
         </div>
         
